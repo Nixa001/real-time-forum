@@ -27,3 +27,18 @@ export function createInput(type, name, placeholder) {
     input.className = 'input-field';  
     return input;
 }
+export function createLink(href, className) {
+    const linkElement = document.createElement('a');
+    linkElement.href = href;
+    linkElement.className = className; // Ajoutez la classe si nécessaire
+
+    return linkElement;
+}
+
+export function createForm(action, method) {
+    const formElement = document.createElement('form');
+    formElement.action = action;
+    formElement.method = method;
+
+    return formElement;
+}
