@@ -1,0 +1,13 @@
+:root {
+    --main-color: #24232d;
+    --text-color: #f0f2ed;
+    --third-color: #1bc4f2;
+    --other: #5d0bf9;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    /* background: var(--main-color);
+    color:var(--text-color) ; */
+}
