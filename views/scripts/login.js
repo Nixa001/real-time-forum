@@ -1,4 +1,4 @@
-import { createDiv, createHeading, createImage,  createInput,  createParagraph } from "./utils/utils.js";
+import { createDiv, createText, createImage,  createInput } from "./utils/utils.js";
 
 export function login() {
     const loginPageDiv = createDiv('login_page');
@@ -6,15 +6,15 @@ export function login() {
     const headerLoginDiv = createDiv('header_login');
 
     headerLoginDiv.appendChild(createImage('/views/assets/login/github.svg', 'logo'));
-    headerLoginDiv.appendChild(createParagraph('text_header_login', "Don't have an account? <span>Sign up !</span>"));
+    headerLoginDiv.appendChild(createText('text_header_login', "Don't have an account? <span>Sign up !</span>"));
 
     leftSideDiv.appendChild(headerLoginDiv);
 
     const contentLoginDiv = createDiv('content_login');
-    contentLoginDiv.appendChild(createHeading('h1', 'Welcome Back'));
+    contentLoginDiv.appendChild(createText('h1', 'Welcome Back'));
 
     const loginOtherDiv = createDiv('login_other');
-    loginOtherDiv.appendChild(createHeading('h4', 'Login in to account'));
+    loginOtherDiv.appendChild(createText('h4', 'Login in to account'));
 
     const loginImagesDiv = createDiv('');
 
@@ -27,6 +27,7 @@ export function login() {
     leftSideDiv.appendChild(contentLoginDiv);
 
     const rightSideDiv = createDiv('right_side');
+    // rightSideDiv.style.background = "url('/views/assets/login/image_side.jpg')"
 
     loginPageDiv.appendChild(leftSideDiv);
     loginPageDiv.appendChild(rightSideDiv);

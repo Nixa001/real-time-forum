@@ -1,4 +1,4 @@
-import { createDiv, createHeading, createImage,  createInput,  createParagraph } from "./utils/utils.js";
+import { createDiv, createText, createImage,  createInput } from "./utils/utils.js";
 
 export function register() {
     const loginPageDiv = createDiv('login_page');
@@ -6,15 +6,15 @@ export function register() {
     const headerLoginDiv = createDiv('header_login');
 
     headerLoginDiv.appendChild(createImage('/views/assets/login/github.svg', 'logo'));
-    headerLoginDiv.appendChild(createParagraph('text_header_login', "You have already an account? <span>Sign In !</span>"));
+    headerLoginDiv.appendChild(createText('text_header_login', "You have already an account? <span>Sign In !</span>"));
 
     leftSideDiv.appendChild(headerLoginDiv);
 
     const contentLoginDiv = createDiv('content_login');
-    contentLoginDiv.appendChild(createHeading('h1', 'Sign Up'));
+    contentLoginDiv.appendChild(createText('h1', 'Sign Up'));
 
     const loginOtherDiv = createDiv('login_other');
-    loginOtherDiv.appendChild(createHeading('h4', 'Login in to account'));
+    loginOtherDiv.appendChild(createText('h4', 'Login in to account'));
 
     const loginImagesDiv = createDiv('');
 

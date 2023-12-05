@@ -4,6 +4,6 @@ import { register } from "./register.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    login()
+    // login()
     // register()
 });

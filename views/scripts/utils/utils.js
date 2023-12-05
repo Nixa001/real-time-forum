@@ -12,17 +12,10 @@ export function createImage(src, alt) {
     return img;
 }
 
-export function createParagraph(className, text) {
-    const p = document.createElement('p');
-    p.className = className;
-    p.innerHTML = text;
-    return p;
-}
-
-export function createHeading(tagName, text) {
-    const heading = document.createElement(tagName);
-    heading.innerHTML = text;
-    return heading;
+export function createText(tagName, text) {
+    const element = document.createElement(tagName);
+    element.innerHTML = text;
+    return element;
 }
 
 

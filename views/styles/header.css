@@ -9,17 +9,13 @@ header {
     position: relative;
     height: 50px;
     padding: 15px 20px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     top: 0;
     box-shadow: 0 5px 8px -9px var(--text-color);
 }
 
-a {
-    display: flex;
-    justify-content: center;
-}
 
 .header__left img {
     height: 50px;
@@ -89,17 +85,4 @@ header input:focus {
         width: 20vw;
     }
 
-    .header__info {
-        display: none;
-    }
-}
-
-a {
-    color: var(--action-color);
-    text-decoration: none;
-}
-
-.user__avatar {
-    border-radius: 50%;
-    width: 45px;
 }

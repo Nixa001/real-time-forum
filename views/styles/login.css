@@ -3,14 +3,13 @@
     --text-color: #f0f2ed;
     --action-color: #1bc4f2;
     --other: #5d0bf9;
-
 }
 
 .login_page {
     display: flex;
     position: relative;
     width: 100vw;
-    height: 97vh;
+    height: 100%;
 }
 
 /* LEFT SIDE */
@@ -100,8 +99,8 @@
 
 .login_page .right_side {
     width: 40%;
-    height: 98%;
-    background: url(/views/assets/login/image_side.jpeg);
+    height: 100vh;
+    background: url(/views/assets/login/image_side.jpg);
     background-size: cover;
     background-position: 35%;
 }
