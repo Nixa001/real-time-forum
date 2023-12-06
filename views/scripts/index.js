@@ -1,6 +1,6 @@
-import { header } from "./header.js";
-import { login } from "./login.js";
-import { register } from "./register.js";
+import { header } from "/views/scripts/header.js";
+import { login } from "/views/scripts/login.js";
+import { register } from "/views/scripts/register.js";
 
 
 

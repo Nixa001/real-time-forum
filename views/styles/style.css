@@ -2,7 +2,7 @@
 
   :root {
       --main-color: #24232d;
-      --text-color: #f0f2ed;
+      --text-color: #fff;
       --third-color: #1bc4f2;
       --other: #5d0bf9;
   }
@@ -18,4 +18,50 @@
       height: 95vh;
       background: var(--main-color);
       color: var(--text-color);
+  }
+
+
+  .main_body {
+      width: 100vw;
+      height: 90%;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .main {
+      width: 60%;
+      box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.69);
+  }
+
+  .sidebar {
+      width: 18%;
+      box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.69);
+  }
+
+  .sidebar_left .profil {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+
+  }
+
+  .sidebar_left::before {
+      content: "";
+      position: absolute;
+      width: 18%;
+      height: 100px;
+      z-index: 0;
+      background: #5e0bf991;
+  }
+
+
+  .sidebar .profil img {
+      margin-top: 25px;
+      z-index: 1;
+      width: 100px;
+      border-radius: 100%;
+      border: 4px solid var(--main-color);
   }

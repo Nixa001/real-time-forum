@@ -25,9 +25,10 @@ export function header() {
     rightDiv.appendChild(messagesLink);
     rightDiv.appendChild(notificationLink);
 
-    headerDiv.appendChild(logoLink);
     headerDiv.appendChild(inputDiv);
     headerDiv.appendChild(rightDiv);
 
-    document.body.appendChild(headerDiv)
+    let body = document.body;
+    body.insertBefore(headerDiv, body.firstChild);
+    // document.body.appendChild(headerDiv)
 }
