@@ -1,9 +1,9 @@
-:root {
+/* :root {
     --main-color: #24232d;
     --text-color: #f0f2ed;
     --action-color: #1bc4f2;
     --other: #5d0bf9;
-}
+} */
 
 .login_page {
     display: flex;

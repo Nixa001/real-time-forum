@@ -1,9 +1,9 @@
-:root {
+/* :root {
     --main-color: #24232d;
     --text-color: #f0f2ed;
     --action-color: #1bc4f2;
     --other: #5d0bf9;
-}
+} */
 
 header {
     position: fixed;
@@ -36,6 +36,7 @@ header {
     margin-left: 10px;
     border: 1px solid var(--text-color);
     border-radius: 100px;
+    opacity: 0.7;
 
 }
 
@@ -67,11 +68,12 @@ header input:focus {
 }
 
 .header__right .material-icons {
-    color: var(--action-color);
+    color: var(--text-color);
     margin: 0 10px;
 }
 
 .header__right .material-icons:hover {
+    color: var(--other);
     cursor: pointer;
 }
 

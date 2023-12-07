@@ -6,6 +6,6 @@ import { register } from "/views/scripts/register.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // login()
-    // register()
-    header()
+    register()
+    // header()
 });
