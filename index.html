@@ -11,18 +11,93 @@
     <link rel="stylesheet" href="/views/styles/header.css">
     <link rel="stylesheet" href="/views/styles/profil.css">
     <link rel="stylesheet" href="/views/styles/style.css">
+    <link rel="stylesheet" href="/views/styles/message.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Real-Time-Forum</title>
 </head>
 
 <body>
     <div class="sidebar_left"></div>
-    <div class="profilDiv">
-        <div class="headerProfil">
-            <div class="profilImage" style="background: url(/views/assets/cover.png); background-size: cover;"><img
-                    src="/views/assets/profil.jpg" alt="" srcset=""></div>
+    <div class="container">
+        <div class="content-left">
+            <div class="message-top">
+                <h2>Message</h2>
+                <input type="text" class="shearh">
+                <input type="button" value="+New Chat" class="tnt-submit">
+                <div class="message-list">
+                    <img src="/views/assets/profil.jpg" alt="" srcset="">
+                    <div class="content-users-message">
+                        <div class="name-time">
+                            <h2>Nixa</h2>
+                            <div class="time">20s</div>
+                        </div>
+                        <p>Bonjour mon gars je t'es</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="message-list">
+                    <img src="/views/assets/profilibg.jpg" alt="" srcset="">
+                    <div class="content-users-message">
+                        <div class="name-time">
+                            <h2>Moi</h2>
+                            <div class="time">30s</div>
+                        </div>
+                        <p>Je suis la</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="message-list">
+                    <img src="/views/assets/imagepost.jpg" alt="" srcset="">
+                    <div class="content-users-message">
+                        <div class="name-time">
+                            <h2>Autre</h2>
+                            <div class="time">5m</div>
+                        </div>
+                        <p>Je voulais te parler</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="message-list">
+                    <img src="/views/assets/test.png" alt="" srcset="">
+                    <div class="content-users-message">
+                        <div class="name-time">
+                            <h2 class="del">Test</h2>
+                            <div class="time">40m</div>
+                        </div>
+                        <p class="del">Vous etes là</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="content-right-top">
+                <img src="/views/assets/profilibg.jpg" alt="" srcset="">
+                <div class="content-users-connected">
+                    <h2>Ibg</h2>
+                    <p>Active</p>
+                </div>
+            </div>
+            <div class="espace-message">
+                <div class="send-message">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                </div>
+                <div class="receve-message">
+                    Quae necessitatibus sint est ab qui minus molestiae harum porro, natus molestias, hic quibusdam
+                    tempore ullam voluptas iure ratione ipsum impedit quasi.
+                </div>
+            </div>
+            <div class="content-right-bottom">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <a href=""><span class="material-icons">
+                        send
+                    </span></a>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>

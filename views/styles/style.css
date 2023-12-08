@@ -15,7 +15,7 @@
 
 body {
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   background: var(--main-color);
   color: var(--text-color);
   overflow: hidden;
