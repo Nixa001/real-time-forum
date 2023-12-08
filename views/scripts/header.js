@@ -30,5 +30,6 @@ export function header() {
 
     let body = document.body;
     body.insertBefore(headerDiv, body.firstChild);
+    return headerDiv.outerHTML
     // document.body.appendChild(headerDiv)
 }

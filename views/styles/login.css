@@ -19,6 +19,10 @@
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 .login_page .left_side .header_login {
     display: flex;
     justify-content: space-around;
@@ -26,12 +30,12 @@
 }
 
 .header_login span {
-    color: var(--action-color);
+    color: var(--other);
     cursor: pointer;
 }
 
 .header_login span:hover {
-    color: var(--other);
+    color: var(--third-color);
 }
 
 .login_page .left_side .content_login,

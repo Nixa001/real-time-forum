@@ -1,0 +1,91 @@
+
+.sidebar_left {
+    width: 18vw;
+    min-width: 250px;
+    margin-top: 100px;
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 10px 10px 0px 0px;
+  }
+
+
+/* sidebar start */
+.sidebar_left .profil {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .sidebar_left {
+    border-radius: 0px 10px 0px 0px;
+  }
+  
+  .sidebar_left::before {
+    content: "";
+    min-width: 250px;
+    position: absolute;
+    width: 18%;
+    height: 80px;
+    z-index: 0;
+    background: var(--other);
+    border-radius: 0px 10px 0px 0px;
+  }
+  
+  .sidebar_left .profil img {
+    margin-top: 15px;
+    z-index: 1;
+    width: 85px;
+    border-radius: 100%;
+    border: 4px solid var(--main-color);
+  }
+  
+  .sidebar_left .profil span {
+    color: var(--other);
+    font-style: italic;
+  }
+  
+  .navbar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar .navbar_link,
+  .connect {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    /* background: #000; */
+    margin-top: 10px;
+    column-gap: 20px;
+    /* border: 1px solid #ffffff0a; */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+  }
+  
+  .navbar .navbar_link:hover {
+    background: var(--other);
+    cursor: pointer;
+  }
+  
+  .navbar .navbar_link h3 {
+    /* font-size: 20px; */
+  }
+  
+  .navbar .navbar_link img {
+    width: 40px;
+    padding: 5px;
+  }
+  
+  .sidebar_left .connect h3 {}
+  
+  /* sidebar end */
+  

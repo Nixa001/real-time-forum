@@ -6,7 +6,7 @@ export function login() {
     const headerLoginDiv = createDiv('header_login');
 
     headerLoginDiv.appendChild(createImage('/views/assets/login/github.svg', 'logo'));
-    headerLoginDiv.appendChild(createText('text_header_login', "Don't have an account? <span>Sign up !</span>"));
+    headerLoginDiv.appendChild(createText('text_header_login', "Don't have an account? <a href='/register'> <span>Sign Up !</span><a>"));
 
     leftSideDiv.appendChild(headerLoginDiv);
 
