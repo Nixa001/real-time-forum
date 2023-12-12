@@ -2,9 +2,8 @@ import { renderSidebarLeft } from "./sidebarLeft.js";
 import { renderSidebarRight } from "./sidebarRight.js";
 
 export function renderMainBody() {
-
-    const sidebarRight = renderSidebarRight()
-    const mainBody = `
+  const sidebarRight = renderSidebarRight();
+  const mainBody = `
         <main class="main_body">
             <div class="main">
                 <div class="post_div">
@@ -57,6 +56,5 @@ export function renderMainBody() {
     </main>
     `;
 
-    return mainBody;
+  return mainBody;
 }
-

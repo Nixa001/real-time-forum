@@ -1,4 +1,4 @@
-export function getHtmlMessages() {
+export function renderHtmlMessages() {
     const messages = `
     <div class="container container_messages">
     <div class="content-left">
