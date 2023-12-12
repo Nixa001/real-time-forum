@@ -5,7 +5,7 @@ export function register() {
     const leftSideDiv = createDiv('left_side');
     const headerLoginDiv = createDiv('header_login');
 
-    headerLoginDiv.appendChild(createImage('/views/assets/login/github.svg', 'logo'));
+    headerLoginDiv.appendChild(createImage('/frontend/assets/login/github.svg', 'logo'));
     headerLoginDiv.appendChild(createText('text_header_login', "You have already an account? <a href='/login'> <span>Sign In !</span><a>"));
 
     leftSideDiv.appendChild(headerLoginDiv);
@@ -18,8 +18,8 @@ export function register() {
 
     const loginImagesDiv = createDiv('');
 
-    loginImagesDiv.appendChild(createImage('/views/assets/login/google.svg', 'google'));
-    loginImagesDiv.appendChild(createImage('/views/assets/login/github.svg', 'github'));
+    loginImagesDiv.appendChild(createImage('/frontend/assets/login/google.svg', 'google'));
+    loginImagesDiv.appendChild(createImage('/frontend/assets/login/github.svg', 'github'));
 
     loginOtherDiv.appendChild(loginImagesDiv);
     contentLoginDiv.appendChild(loginOtherDiv);
