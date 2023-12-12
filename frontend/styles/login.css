@@ -104,7 +104,7 @@ a {
 .login_page .right_side {
     width: 40%;
     height: 100vh;
-    background: url(/views/assets/login/image_side.jpg);
+    background: url(/frontend/assets/login/image_side.jpg);
     background-size: cover;
     background-position: 35%;
 }

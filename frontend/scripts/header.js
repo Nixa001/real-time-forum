@@ -4,7 +4,7 @@ export function header() {
     const headerDiv = createText('header', "");
 
     const logoLink = createLink('/', 'header__left');
-    const logoImage = createImage('/views/assets/login/github.svg', 'logo');
+    const logoImage = createImage('/frontend/assets/login/github.svg', 'logo');
     logoLink.appendChild(logoImage);
 
     headerDiv.appendChild(logoLink);
