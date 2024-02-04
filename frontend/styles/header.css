@@ -20,6 +20,7 @@ header {
 
 .header__left img {
     height: 50px;
+    width: 50px;
 }
 
 .header__left {
@@ -79,8 +80,8 @@ header input:focus {
 
 @media (max-width: 768px) {
     .header__left img {
-        width: 25vw;
-        height: 100%;
+        width: 8vw;
+        height: 8vw;
     }
 
     .header__input input {

@@ -37,11 +37,14 @@ a {
 .header_login span:hover {
     color: var(--third-color);
 }
-
+.error_login_msg{
+    color: #ff0e0e;
+    
+}
 .login_page .left_side .content_login,
 .content_login form,
 .content_login .login_other {
-    row-gap: 30px;
+    row-gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,6 +66,7 @@ a {
 
 .content_login form {
     width: 50%;
+    gap: 7px;
     max-width: 600px;
     min-width: 300px;
 }

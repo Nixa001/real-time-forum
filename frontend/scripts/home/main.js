@@ -1,104 +1,62 @@
-import { renderSidebarLeft } from "./sidebarLeft.js";
-import { renderSidebarRight } from "./sidebarRight.js";
+import { Entity } from "../pageEntity.js";
+import { RenderSidebarRight } from "./sidebarRight.js";
 
-export function renderMainBody() {
-  const sidebarRight = renderSidebarRight();
-  const mainBody = `
-        <main class="main_body">
-            <div class="main">
-                <div class="post_div">
-                    <div class="header_post">
-                        <div class="info_post">
-                            <img src="/views/assets/profil.jpg" alt="profil" srcset="">
-                            <h3 class="user_name_post">Nicolas Faye</h3>
-                            <span class="username_post">@nixa001</span>
-                        </div>
-                        <h4 class="title_post">Lorem ipsum dolor sit, amet consectetur adipisic ingamet consectetur
-                            adipisicing elit.
-                            Voluptate, aspernatur. Dolorum, impedit. Modi, beataes</h4>
+export class RenderMainBody extends Entity {
+  constructor() {
+    super();
+    this.setTitle("Home");
+  }
+  getHtml() {
+    return (
+      `
+        <div class="main">
+            <div class="create_post create_poste">
+                <form class="form_post" action="" method="POST" data-form="post"  enctype=multipart/form-data>
+                    <textarea class="title_post" name="title_post" placeholder="Let's post something ..." required></textarea>
+                    <div class="send_post">
+
+
+                        
+                    <div class="checkbox__wrapper">
+                    <div>
+                        <input type="checkbox" id="check" value="technologie" name="techno" />
+                        <label for="check">Tech</label>
                     </div>
-                    <div class="img_post"><img src="/views/assets/imagepost2.jpg" alt="" srcset=""></div>
-                    <div class="footer_post">
-                        <div class="like_post"><img src="/views/assets/icons/likew.png" alt="" srcset=""><span>320</span>
-                        </div>
-                        <div class="dislike_post"><img src="/views/assets/icons/dislikew.png" alt=""
-                                srcset=""><span>17</span>
-                        </div>
-                        <div class="comment_post"><img src="/views/assets/icons/comment.png" alt=""
-                                srcset=""><span>110</span></div>
+                    <div>
+                        <input type="checkbox" id="checks" value="sport" name="sport" />
+                        <label for="checks">Sport</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkS" value="sante" name="sante" />
+                        <label for="checkS">Sante</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkM" value="musique" name="music" />
+                        <label for="checkM">Musique</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkN" value="news" name="news" />
+                        <label for="checkN">News</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checko" value="other" name="other" checked />
+                        <label for="checko">Other</label>
                     </div>
                 </div>
-                <div class="post_div">
-                    <div class="header_post">
-                        <div class="info_post">
-                            <img src="/views/assets/profilibg.jpg" alt="profil" srcset="">
-                            <h3 class="user_name_post">Ibrahima Gueye</h3>
-                            <span class="username_post">@ibg</span>
-                        </div>
-                        <h4 class="title_post">Lorem ipsum dolor sit, amet consectetur adipisic ingamet consectetur
-                            adipisicing elit.
-                            Voluptate, aspernatur. Dolorum, impedit. Modi, beataes</h4>
-                    </div>
-                    <div class="img_post"><img src="/views/assets/imagepost.jpg" alt="" srcset=""></div>
-                    <div class="footer_post">
-                        <div class="like_post"><img src="/views/assets/icons/likew.png" alt="" srcset=""><span>320</span>
-                        </div>
-                        <div class="dislike_post"><img src="/views/assets/icons/dislikew.png" alt=""
-                                srcset=""><span>17</span>
-                        </div>
-                        <div class="comment_post"><img src="/views/assets/icons/comment.png" alt=""
-                                srcset=""><span>110</span></div>
-                    </div>
-                </div>
-            </div>
-          </form>
-        </div>
-  
-        <div class="post_div">
-          <div class="header_post">
-            <div class="info_post">
-              <img src="/views/assets/profil.jpg" alt="profil" srcset="">
-              <h3 class="user_name_post">Nicolas Faye</h3>
-              <span class="username_post">@nixa001</span>
-            </div>
-            <h4 class="title_post">Lorem ipsum dolor sit, amet consectetur adipisic ingamet consectetur
-              adipisicing elit.
-              Voluptate, aspernatur. Dolorum, impedit. Modi, beataes</h4>
-          </div>
-          <div class="img_post"><img src="/views/assets/imagepost2.jpg" alt="" srcset=""></div>
-          <div class="footer_post">
-            <div class="like_post"><img src="/views/assets/icons/likew.png" alt="" srcset=""><span>320</span>
-            </div>
-            <div class="dislike_post"><img src="/views/assets/icons/dislikew.png" alt="" srcset=""><span>17</span>
-            </div>
-            <div class="comment_post"><img src="/views/assets/icons/comment.png" alt="" srcset=""><span>110</span></div>
-          </div>
-        </div>
-        <div class="post_div">
-          <div class="header_post">
-            <div class="info_post">
-              <img src="/views/assets/profilibg.jpg" alt="profil" srcset="">
-              <h3 class="user_name_post">Ibrahima Gueye</h3>
-              <span class="username_post">@ibg</span>
-            </div>
-            <h4 class="title_post">Lorem ipsum dolor sit, amet consectetur adipisic ingamet consectetur
-              adipisicing elit.
-              Voluptate, aspernatur. Dolorum, impedit. Modi, beataes</h4>
-          </div>
-          <div class="img_post"><img src="/views/assets/imagepost.jpg" alt="" srcset=""></div>
-          <div class="footer_post">
-            <div class="like_post"><img src="/views/assets/icons/likew.png" alt="" srcset=""><span>320</span>
-            </div>
-            <div class="dislike_post"><img src="/views/assets/icons/dislikew.png" alt="" srcset=""><span>17</span>
-            </div>
-            <div class="comment_post"><img src="/views/assets/icons/comment.png" alt="" srcset=""><span>110</span></div>
-          </div>
-        </div>
-      </div>
-      </div>
-        ${sidebarRight}
-    </main>
-    `;
 
-  return mainBody;
+                        <label for="image_post" class="upload_image material-symbols-outlined">image</label>
+                        <input type="file" name="image_post" id="image_post" hidden>
+                        <input class="submit_post material-icons" type="submit" value="send">
+                    </div>
+                </form>
+            </div>
+            <div class="post_div_top">
+                
+            </div>
+                
+        </div>` + RenderSidebarRight()
+    );
+  }
+
 }
+

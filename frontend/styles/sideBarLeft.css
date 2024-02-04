@@ -20,7 +20,6 @@
   .sidebar_left {
     border-radius: 0px 10px 0px 0px;
   }
-  
   .sidebar_left::before {
     content: "";
     min-width: 250px;
@@ -40,7 +39,7 @@
     border: 4px solid var(--main-color);
   }
   
-  .sidebar_left .profil span {
+  .sidebar_left .profil span, .userNameConnect {
     color: var(--other);
     font-style: italic;
   }
