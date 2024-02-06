@@ -187,7 +187,7 @@ func handleGetMessage(db *sql.DB, conn *websocket.Conn, userID int, message Resp
 func handleTyping(message Resp) {
 
 	for id, clientConn := range clients {
-		if id != message.IdSender {
+		if id == message.IdReceiver {
 			msg, err := json.Marshal(message)
 			if err != nil {
 				fmt.Println("Error encoding message:", err)

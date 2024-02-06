@@ -27,9 +27,9 @@ export class RenderHtmlRegister extends Entity {
                     <input type="text" name="username" placeholder="Username" class="input-field">
                     <input type="number" name="age" placeholder="Age" class="input-field" min="1" max="100">
                     <input type="email" name="email" placeholder="Email" class="input-field">
-                    <select name="sexe" id="" class="input-field">
-                        <option value="m">M</option>
-                        <option value="f">F</option>
+                    <select name="sexe" id="" class="input-field custom_select">
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
                     </select>
                     <input type="password" name="password" placeholder="Password" class="input-field">
                     <input class="btn-submit" type="submit" value="REGISTER" name="register">

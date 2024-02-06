@@ -199,6 +199,12 @@ label {
   font-size: 15px;
 }
 
+.form_post{
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 40px; */
+}
+
 .create_post .form_post .submit_post,
 .create_post .form_post .upload_image {
   width: 70px;
