@@ -4,54 +4,58 @@ import { gestionNavigation, userId } from "../gestionRouter/Routers.js";
 import { handleLikePost } from "../likesPost/likePosts.js";
 import { createSound, playSound } from "../utils.js";
 
-export const RenderPostHandlers = (urlApi, isReg = false) => {
-  fetch(urlApi, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status) {
-        const posts = data.posts;
-
-        DisplayUsers(data.allUsers, data.user.Id)
-        if (isReg) {
-          return
-        }
-
-        let fullName = document.querySelector(".userFullNameConnect")
-        let userame = document.querySelector(".userNameConnect")
-        if (fullName != null) {
-          fullName.textContent = data.user.FirstName + " " + data.user.LastName
-        }
-        if (fullName != null) {
-          userame.textContent = "@" + data.user.UserName
-        }
-
-        userId.IdSender = data.user.Id
-        if (posts != null) {
-
-          posts.forEach((post) => {
-            setTimeout(() => {
-              AddPost(post, data)
-            }, 400);
-          });
-        }
-        // DisplayUsers(data.allUsers, data.user.Id, true)
-      } else {
-        alert("COOL");
-      }
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la requêt :", error);
+export const RenderPostHandlers = async (urlApi, isReg = false) => {
+  try {
+    const response = await fetch(urlApi, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
+    const data = await response.json();
+
+    if (data.status) {
+      const posts = data.posts;
+
+      DisplayUsers(data.allUsers, data.user.Id);
+
+      if (isReg) {
+        return;
+      }
+
+      let fullName = document.querySelector(".userFullNameConnect");
+      let userName = document.querySelector(".userNameConnect");
+
+      if (fullName != null) {
+        fullName.textContent = data.user.FirstName + " " + data.user.LastName;
+      }
+
+      if (userName != null) {
+        userName.textContent = "@" + data.user.UserName;
+      }
+
+      userId.IdSender = data.user.Id;
+
+      if (posts != null) {
+        for (const post of posts) {
+          await new Promise(resolve => setTimeout(() => {
+            AddPost(post, data);
+            resolve();
+          }, 200));
+        }
+      }
+    } else {
+      alert("COOL");
+    }
+  } catch (error) {
+    console.error("Erreur lors de la requête :", error);
+  }
 };
 
 export const DisplayUsers = (users, currentUserId) => {
-  if (users != null) {
-    let onlineUsersDiv = document.querySelector(".online")
+  let onlineUsersDiv = document.querySelector(".online")
+  if (users != null && onlineUsersDiv != null) {
     onlineUsersDiv.innerHTML = ""
     users.forEach((user) => {
       if (user.Id != currentUserId) {
@@ -147,12 +151,13 @@ export const AddPost = (post, data, invert = false) => {
 
   let commentDiv = createCommentDiv(post.Id, post.Comments, data.user.Id)
   postDiv.appendChild(commentDiv);
-  if (!invert) {
-    mainDiv.appendChild(postDiv);
-
-  } else {
-    let createPostDiv = document.querySelector(".create_post");
-    mainDiv.insertBefore(postDiv, createPostDiv.nextSibling);
+  if (mainDiv) {
+    if (!invert) {
+      mainDiv.appendChild(postDiv);
+    } else {
+      let createPostDiv = document.querySelector(".create_post");
+      mainDiv.insertBefore(postDiv, createPostDiv.nextSibling);
+    }
   }
 
 

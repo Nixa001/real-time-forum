@@ -20,27 +20,25 @@ export function initWebSocket() {
     const dataMsg = JSON.parse(event.data);
     let userInfo = document.querySelector(".info_online" + dataMsg.idSender)
     if (dataMsg.type === "GET" && dataMsg.content == "IsOnline" && connectToast == true) {
-      createToast("notification.mp3")
-      toast(dataMsg.fullName, dataMsg.content)
       let updateConnect = document.querySelector(".checkbox__wrapper")
       if (updateConnect) {
         let url = "http://localhost:9000/api/home"
         RenderPostHandlers(url, true)
       }
       if (userInfo != null) {
-        userInfo.className = "info_online"
-        userInfo.classList.add("info_online" + dataMsg.idSender)
-        userInfo.classList.add("info_onlineC")
+        let url = "http://localhost:9000/api/home"
+        RenderPostHandlers(url, true)
       }
-      connectToast = false
-    } else if (dataMsg.type === "GET" && dataMsg.content == "IsOffline") {
       createToast("notification.mp3")
       toast(dataMsg.fullName, dataMsg.content)
+      connectToast = false
+    } else if (dataMsg.type === "GET" && dataMsg.content == "IsOffline") {
       if (userInfo != null) {
-        userInfo.className = "info_online"
-        userInfo.classList.add("info_online" + dataMsg.idSender)
-        userInfo.classList.add("info_onlineD")
+        let url = "http://localhost:9000/api/home"
+        RenderPostHandlers(url, true)
       }
+      createToast("notification.mp3")
+      toast(dataMsg.fullName, dataMsg.content)
       connectToast = true
     } else if (dataMsg.type === "GET" && dataMsg.content == "IS TYPING") {
       let validUser = document.querySelector(".espace-message" + dataMsg.idSender)
