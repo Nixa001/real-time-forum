@@ -2,7 +2,7 @@ import { typingTimeout, userId } from "../gestionRouter/Routers.js";
 import { RenderPostHandlers } from "../posts/renderPostHandlers.js";
 import { createSound, playSound } from "../utils.js";
 
-const websocketURL = "wss://real-time-forum-w85u.onrender.com";
+const websocketURL = "wss://real-time-forum-w85u.onrender.com/ws";
 export var socket;
 
 var connectToast = true;
