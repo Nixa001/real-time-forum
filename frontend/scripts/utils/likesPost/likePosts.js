@@ -1,8 +1,12 @@
-export const handleLikePost = (buttonValue, postID, userID, isLikeComment = false) => {
-  let url = "http://localhost:9000/api/like";
+export const handleLikePost = (
+  buttonValue,
+  postID,
+  userID,
+  isLikeComment = false
+) => {
+  let url = "https://real-time-forum-w85u.onrender.com/api/like";
   if (isLikeComment) {
-    url = "http://localhost:9000/api/likeComment";
-
+    url = "https://real-time-forum-w85u.onrender.com/api/likeComment";
   }
   let liked = false;
   if (buttonValue !== "Dislike") {
@@ -17,13 +21,17 @@ const fetchElement = (url, PostID, UserID, Like, IsLikeComment) => {
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ PostID: PostID, UserID: UserID, Like: Like, IsLikeComment: IsLikeComment }),
+    body: JSON.stringify({
+      PostID: PostID,
+      UserID: UserID,
+      Like: Like,
+      IsLikeComment: IsLikeComment,
+    }),
   })
     .then((response) => response.json())
     .then((data) => {
       if (data.status) {
-        likeStatus(data)
-
+        likeStatus(data);
       }
     })
     .catch((error) => {
@@ -32,20 +40,23 @@ const fetchElement = (url, PostID, UserID, Like, IsLikeComment) => {
 };
 
 const likeStatus = (data) => {
-
-  let isLikeDiv = document.querySelector(".like-img" + data.TypeLike)
-  let isDislikeDiv = document.querySelector(".dislike-img" + data.TypeLike)
-  let nbrLikeDiv = document.querySelector(".like-span" + data.TypeLike)
-  let nbrDislikeDiv = document.querySelector(".dislike-span" + data.TypeLike)
+  let isLikeDiv = document.querySelector(".like-img" + data.TypeLike);
+  let isDislikeDiv = document.querySelector(".dislike-img" + data.TypeLike);
+  let nbrLikeDiv = document.querySelector(".like-span" + data.TypeLike);
+  let nbrDislikeDiv = document.querySelector(".dislike-span" + data.TypeLike);
   if (data.IsLikeComment == true) {
-    isLikeDiv = document.querySelector(".likeComment-img" + data.TypeLike)
-    isDislikeDiv = document.querySelector(".dislikeComment-img" + data.TypeLike)
-    nbrLikeDiv = document.querySelector(".likeComment-span" + data.TypeLike)
-    nbrDislikeDiv = document.querySelector(".dislikeComment-span" + data.TypeLike)
+    isLikeDiv = document.querySelector(".likeComment-img" + data.TypeLike);
+    isDislikeDiv = document.querySelector(
+      ".dislikeComment-img" + data.TypeLike
+    );
+    nbrLikeDiv = document.querySelector(".likeComment-span" + data.TypeLike);
+    nbrDislikeDiv = document.querySelector(
+      ".dislikeComment-span" + data.TypeLike
+    );
   }
 
-  nbrLikeDiv.innerHTML = data.NbrLike
-  nbrDislikeDiv.innerHTML = data.NbrDislike
+  nbrLikeDiv.innerHTML = data.NbrLike;
+  nbrDislikeDiv.innerHTML = data.NbrDislike;
 
   if (data.IsLike) {
     isLikeDiv.src = "/frontend/assets/icons/like.png";
@@ -58,6 +69,5 @@ const likeStatus = (data) => {
     isLikeDiv.src = "/frontend/assets/icons/likew.png";
   } else {
     isDislikeDiv.src = "/frontend/assets/icons/dislikew.png";
-
   }
-}
+};

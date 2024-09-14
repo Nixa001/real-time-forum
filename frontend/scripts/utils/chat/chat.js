@@ -2,10 +2,10 @@ import { typingTimeout, userId } from "../gestionRouter/Routers.js";
 import { RenderPostHandlers } from "../posts/renderPostHandlers.js";
 import { createSound, playSound } from "../utils.js";
 
-const websocketURL = "ws://localhost:9000/ws";
+const websocketURL = "wss://real-time-forum-w85u.onrender.com";
 export var socket;
 
-var connectToast = true
+var connectToast = true;
 
 export function initWebSocket() {
   socket = new WebSocket(websocketURL);
@@ -18,43 +18,47 @@ export function initWebSocket() {
   });
   socket.addEventListener("message", (event) => {
     const dataMsg = JSON.parse(event.data);
-    let userInfo = document.querySelector(".info_online" + dataMsg.idSender)
-    if (dataMsg.type === "GET" && dataMsg.content == "IsOnline" && connectToast == true) {
-      let updateConnect = document.querySelector(".checkbox__wrapper")
+    let userInfo = document.querySelector(".info_online" + dataMsg.idSender);
+    if (
+      dataMsg.type === "GET" &&
+      dataMsg.content == "IsOnline" &&
+      connectToast == true
+    ) {
+      let updateConnect = document.querySelector(".checkbox__wrapper");
       if (updateConnect) {
-        let url = "http://localhost:9000/api/home"
-        RenderPostHandlers(url, true)
+        let url = "https://real-time-forum-w85u.onrender.com/api/home";
+        RenderPostHandlers(url, true);
       }
       if (userInfo != null) {
-        let url = "http://localhost:9000/api/home"
-        RenderPostHandlers(url, true)
+        let url = "https://real-time-forum-w85u.onrender.com/api/home";
+        RenderPostHandlers(url, true);
       }
-      createToast("notification.mp3")
-      toast(dataMsg.fullName, dataMsg.content)
-      connectToast = false
+      createToast("notification.mp3");
+      toast(dataMsg.fullName, dataMsg.content);
+      connectToast = false;
     } else if (dataMsg.type === "GET" && dataMsg.content == "IsOffline") {
       if (userInfo != null) {
-        let url = "http://localhost:9000/api/home"
-        RenderPostHandlers(url, true)
+        let url = "https://real-time-forum-w85u.onrender.com/api/home";
+        RenderPostHandlers(url, true);
       }
-      createToast("notification.mp3")
-      toast(dataMsg.fullName, dataMsg.content)
-      connectToast = true
+      createToast("notification.mp3");
+      toast(dataMsg.fullName, dataMsg.content);
+      connectToast = true;
     } else if (dataMsg.type === "GET" && dataMsg.content == "IS TYPING") {
-      let validUser = document.querySelector(".espace-message" + dataMsg.idSender)
+      let validUser = document.querySelector(
+        ".espace-message" + dataMsg.idSender
+      );
       if (validUser) {
-        showTypingMessage()
+        showTypingMessage();
       }
     } else if (dataMsg.type === "POST") {
-      createToast("msg.mp3")
-      toast(dataMsg.fullName, dataMsg.content)
+      createToast("msg.mp3");
+      toast(dataMsg.fullName, dataMsg.content);
       updateMessages(dataMsg);
     }
 
     // console.log(dataMsg);
   });
-
-
 }
 const showTypingMessage = () => {
   let is_typing = document.querySelector(".is_typing");
@@ -75,7 +79,6 @@ const showTypingMessage = () => {
 // });
 
 export function updateMessages(dataMsg) {
-
   let msgbox = document.querySelector(".espace-message" + dataMsg.idSender);
   let userBox = document.querySelector(".message-list" + dataMsg.idSender);
   if (msgbox) {
@@ -83,26 +86,25 @@ export function updateMessages(dataMsg) {
     divmsg.className = "receive-message";
     divmsg.textContent = dataMsg.content;
 
-    let dateMsg = document.createElement("span")
-    dateMsg.className = "date_msg"
-    dateMsg.textContent = "@" + dataMsg.UserName + ": " + formatDate()
+    let dateMsg = document.createElement("span");
+    dateMsg.className = "date_msg";
+    dateMsg.textContent = "@" + dataMsg.UserName + ": " + formatDate();
 
-    divmsg.appendChild(dateMsg)
+    divmsg.appendChild(dateMsg);
     let all_messages = document.querySelector(".all_messages");
     all_messages.innerHTML = "";
 
     msgbox.appendChild(divmsg);
-    msgbox.scrollTop = msgbox.scrollHeight
+    msgbox.scrollTop = msgbox.scrollHeight;
   }
-  let mess = document.querySelector(".message-top")
+  let mess = document.querySelector(".message-top");
   if (mess) {
     getUsersDataMsg();
   }
-
 }
 function createToast(notif) {
-  createSound(notif)
-  playSound()
+  createSound(notif);
+  playSound();
 
   var toast = document.createElement("div");
   toast.classList.add("toast");
@@ -131,15 +133,18 @@ function createToast(notif) {
 }
 
 function toast(fullName, typeToast) {
-  let nameConn = document.querySelector(".text-1")
+  let nameConn = document.querySelector(".text-1");
   if (typeToast == "IsOnline") {
-    nameConn.innerHTML = fullName + "<span class='text text-2'> is connected</span>";
+    nameConn.innerHTML =
+      fullName + "<span class='text text-2'> is connected</span>";
   } else if (typeToast == "IsOffline") {
-    nameConn.innerHTML = fullName + "<span class='text text-2'> is disconnected</span>";
+    nameConn.innerHTML =
+      fullName + "<span class='text text-2'> is disconnected</span>";
   } else {
-    nameConn.innerHTML = fullName + "<span class='text text-2'> has sent a new message</span>";
+    nameConn.innerHTML =
+      fullName + "<span class='text text-2'> has sent a new message</span>";
   }
-  let toast = document.querySelector(".toast")
+  let toast = document.querySelector(".toast");
   let progress = document.querySelector(".progress");
   let timer1, timer2;
 
@@ -156,9 +161,7 @@ function toast(fullName, typeToast) {
 }
 
 export function sendMessageToServer(message, idReceiver, idSender, method) {
-
   if (socket && socket.readyState === WebSocket.OPEN) {
-
     socket.send(
       JSON.stringify({
         type: method,
@@ -181,11 +184,9 @@ export function disconnectSocket() {
   }
 }
 
-
-
-
 export function getUsersDataMsg() {
-  const urlApi = "http://localhost:9000/api/getUsersDataMsg";
+  const urlApi =
+    "https://real-time-forum-w85u.onrender.com/api/getUsersDataMsg";
   fetch(urlApi, {
     method: "GET",
     contentType: "application/json",
@@ -193,9 +194,8 @@ export function getUsersDataMsg() {
     .then((response) => response.json())
     .then((data) => {
       if (data.isMessage) {
-
         let all_messages = document.querySelector(".all_messages");
-        all_messages.innerHTML = ""
+        all_messages.innerHTML = "";
         data.users.forEach((element) => {
           if (data.currentUser != element.Id) {
             AddUsermsg(element, element.messages, data.currentUser);
@@ -217,21 +217,19 @@ export function getUsersDataMsg() {
 
 export function AddUsermsg(user, messages, currentUser) {
   if (messages != null) {
-    messages = messages.reverse()
+    messages = messages.reverse();
   }
   let all_messages = document.querySelector(".all_messages");
   let messageList = document.createElement("div");
   messageList.classList.add("message-list");
   messageList.classList.add("message-list" + user.Id);
 
-
   messageList.addEventListener("click", function () {
     let espace_messag = document.querySelector(".espace-message");
     let content_right = document.querySelector(".content-right");
-    espace_messag.remove()
+    espace_messag.remove();
 
-
-    let espace_message = document.createElement("div")
+    let espace_message = document.createElement("div");
     all_messages.innerHTML = "";
     getUsersDataMsg();
 
@@ -241,7 +239,6 @@ export function AddUsermsg(user, messages, currentUser) {
     let thirdChild = content_right.children[0];
 
     content_right.insertBefore(espace_message, thirdChild.nextSibling);
-
 
     let msg_content = document.querySelector(".content-right");
     msg_content.style.display = "flex";
@@ -271,7 +268,10 @@ export function AddUsermsg(user, messages, currentUser) {
 
             messageContainer.appendChild(dateMsg);
 
-            espace_message.insertBefore(messageContainer, espace_message.firstChild);
+            espace_message.insertBefore(
+              messageContainer,
+              espace_message.firstChild
+            );
           }
         }
       }
@@ -280,22 +280,23 @@ export function AddUsermsg(user, messages, currentUser) {
     afficherMessages(0, 10);
     espace_message.scrollTop = espace_message.scrollHeight;
 
-    let scrollPositionBefore = espace_message.scrollHeight - espace_message.scrollTop;
+    let scrollPositionBefore =
+      espace_message.scrollHeight - espace_message.scrollTop;
     espace_message.addEventListener("scroll", function () {
       if (espace_message.scrollTop === 0) {
         setTimeout(() => {
-          scrollPositionBefore = espace_message.scrollHeight - espace_message.scrollTop;
+          scrollPositionBefore =
+            espace_message.scrollHeight - espace_message.scrollTop;
 
           afficherMessages(startMsg, messagesToAdd);
-          espace_message.scrollTop = espace_message.scrollHeight - scrollPositionBefore;
+          espace_message.scrollTop =
+            espace_message.scrollHeight - scrollPositionBefore;
 
           startMsg += messagesToAdd;
         }, 700);
       }
     });
   });
-
-
 
   let imgElement = document.createElement("img");
   imgElement.src = "/frontend/assets/profilibg.jpg";
@@ -312,7 +313,7 @@ export function AddUsermsg(user, messages, currentUser) {
   nameTime.appendChild(h2Element);
 
   let pElement = document.createElement("p");
-  pElement.className = "date_msg"
+  pElement.className = "date_msg";
   if (messages != null) {
     pElement.textContent = messages[0].messageContent;
   }
@@ -327,7 +328,14 @@ export function AddUsermsg(user, messages, currentUser) {
 }
 
 export function formatDate() {
-  const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
-  const formattedDate = new Date().toLocaleString('en-US', options);
+  const options = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  };
+  const formattedDate = new Date().toLocaleString("en-US", options);
   return formattedDate;
 }
