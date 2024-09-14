@@ -13,8 +13,12 @@ import (
 	"real-time-forum/backend/utils"
 )
 
+
 func main() {
 	utils.ClearScreen()
+port := "9000" // Variable pour le port
+    addr := fmt.Sprintf(":%s", port)
+
 	utils.CreateDB()
 	fmt.Println("Data base create successfull")
 	fs := http.FileServer(http.Dir("frontend"))
@@ -33,7 +37,7 @@ func main() {
 	http.HandleFunc("/ws", socket.HandleChatSocket)
 
 	fmt.Println("http://localhost:9000/")
-	http.ListenAndServe(":9000", nil)
+	http.ListenAndServe(addr, nil)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
