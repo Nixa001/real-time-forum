@@ -13,8 +13,12 @@ import (
 	"real-time-forum/backend/utils"
 )
 
+
 func main() {
 	utils.ClearScreen()
+port := "9000" // Variable pour le port
+    addr := fmt.Sprintf(":%s", port)
+
 	utils.CreateDB()
 	fmt.Println("Data base create successfull")
 	fs := http.FileServer(http.Dir("frontend"))
@@ -32,8 +36,11 @@ func main() {
 	http.HandleFunc("/api/getUsersDataMsg", messages.GetUsersDataMsg)
 	http.HandleFunc("/ws", socket.HandleChatSocket)
 
+
 	fmt.Println("https://real-time-forum-w85u.onrender.com/")
-	http.ListenAndServe(":9000", nil)
+
+	http.ListenAndServe(addr, nil)
+
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
