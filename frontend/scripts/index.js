@@ -8,11 +8,10 @@ export let dataConnect = {
 export let userConn = {
   IsConn: false,
   IsDisconn: false,
-}
+};
 export function homeFetch() {
-
   let chemin = window.location.pathname;
-  fetch("http://localhost:9000/api/home")
+  fetch("https://real-time-forum-w85u.onrender.com/api/home")
     .then((response) => response.json())
     .then((data) => {
       if (data.connect === false) {
@@ -35,10 +34,10 @@ export function homeFetch() {
     document.addEventListener("DOMContentLoaded", (event) => {
       event.preventDefault();
       // console.log(" = ", chemin);
-      let msgIcon = document.querySelector(".chat")
+      let msgIcon = document.querySelector(".chat");
       msgIcon.addEventListener("click", () => {
         gestionNavigation("/messages");
-      })
+      });
       // let notifIcon = document.querySelector(".chat")
       // notifIcon.addEventListener("click", () => {
       //   gestionNavigation("/notifications");
@@ -53,23 +52,22 @@ export function homeFetch() {
     header.innerHTML = RenderHtmlheader();
     leftSideBar.innerHTML = RenderSidebarLeft();
 
-    routerHandle()
+    routerHandle();
   }
 }
-homeFetch()
+homeFetch();
 // routerHandle()
 // window.addEventListener("popstate", (event) => {
 //   const chemin = window.location.pathname;
 //   gestionNavigation(chemin);
 // });
 
-
-export function routerHandle(){
-  var navbarLinks = document.querySelectorAll('.navbar_link');
+export function routerHandle() {
+  var navbarLinks = document.querySelectorAll(".navbar_link");
   navbarLinks.forEach(function (navbarLink) {
-    navbarLink.addEventListener('click', function () {
-      var href = navbarLink.getAttribute('data-href');
-      gestionNavigation(href)
- });
+    navbarLink.addEventListener("click", function () {
+      var href = navbarLink.getAttribute("data-href");
+      gestionNavigation(href);
+    });
   });
 }

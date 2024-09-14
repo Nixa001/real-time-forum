@@ -36,8 +36,11 @@ port := "9000" // Variable pour le port
 	http.HandleFunc("/api/getUsersDataMsg", messages.GetUsersDataMsg)
 	http.HandleFunc("/ws", socket.HandleChatSocket)
 
-	fmt.Println("http://localhost:9000/")
+
+	fmt.Println("https://real-time-forum-w85u.onrender.com/")
+
 	http.ListenAndServe(addr, nil)
+
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
