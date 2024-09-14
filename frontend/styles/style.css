@@ -18,7 +18,7 @@ body {
   height: 100vh;
   background: var(--main-color);
   color: var(--text-color);
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
 }
 
